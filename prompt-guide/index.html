@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prompt Like You Mean It | The Calm Scale AI</title>
+  <meta name="description" content="The busy woman's playbook for getting AI to actually help you. One simple formula, real before-and-after examples, 10 copy-paste prompts, and a bonus My Prompts Library. $9.">
+  <meta property="og:title" content="Prompt Like You Mean It">
+  <meta property="og:description" content="The busy woman's playbook for getting AI to actually help you. $9, instant download.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="cover.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal: #1F5C5A; --teal-dark: #174744; --teal-soft: #E3EFEC;
+      --cream: #FAF6EE; --sand: #F3ECDD; --gold: #C9A24A; --gold-soft: #F4E7C4;
+      --ink: #26302F; --muted: #5F6B69; --line: #E4DCCB; --white: #FFFFFF;
+      --radius: 18px;
+      --shadow: 0 1px 2px rgba(31,92,90,.06), 0 16px 40px -20px rgba(31,92,90,.35);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; line-height: 1.15; margin: 0; color: var(--ink); }
+    a { color: var(--teal); }
+    img { max-width: 100%; display: block; }
+    .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    .eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--teal); margin: 0 0 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 26px; border-radius: 999px; font-weight: 600; font-size: 1rem; text-decoration: none; border: 2px solid transparent; transition: transform .15s ease, background .15s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--teal); color: var(--white); box-shadow: 0 10px 22px -10px rgba(31,92,90,.8); }
+    .btn-primary:hover { background: var(--teal-dark); }
+    .btn-outline { background: transparent; color: var(--teal); border-color: rgba(31,92,90,.3); }
+    .btn:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+    header { position: sticky; top: 0; z-index: 50; background: rgba(250,246,238,.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(31,92,90,.1); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 700; }
+    .brand-mark { width: 34px; height: 34px; border-radius: 50%; background: var(--teal); color: var(--white); display: grid; place-items: center; font-family: "Playfair Display", serif; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .95rem; font-weight: 500; }
+    .nav-links .btn { padding: 10px 18px; font-size: .9rem; color: var(--white); }
+    @media (max-width: 700px) { .nav-links a:not(.btn) { display: none; } }
+
+    .hero { position: relative; overflow: hidden; padding: 60px 0 80px; }
+    .hero::before { content: ""; position: absolute; inset: -30% -20% auto auto; width: 70%; height: 130%; background: radial-gradient(circle at 60% 40%, rgba(244,231,196,.9), transparent 60%), radial-gradient(circle at 85% 70%, rgba(227,239,236,.95), transparent 55%); pointer-events: none; }
+    .hero-grid { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
+    .hero h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); }
+    .hero h1 em { font-style: normal; color: var(--teal); }
+    .hero .lead { font-size: 1.15rem; color: var(--muted); margin: 20px 0 28px; max-width: 34rem; }
+    .buy-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+    .price-tag { font-family: "Playfair Display", serif; font-size: 2.4rem; font-weight: 700; color: var(--teal); line-height: 1; }
+    .price-tag small { font-family: Inter, sans-serif; font-size: .85rem; color: var(--muted); font-weight: 500; display: block; margin-top: 4px; }
+    .note { font-size: .88rem; color: var(--muted); margin-top: 14px; }
+    .book { justify-self: center; width: min(320px, 100%); transform: rotate(2deg); }
+    .book img { border-radius: 6px 14px 14px 6px; box-shadow: -6px 0 0 rgba(0,0,0,.12) inset, 0 40px 70px -25px rgba(23,71,68,.6); }
+    @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: 44px; } .hero { padding-top: 36px; } .book { width: min(260px, 80%); } }
+
+    section { padding: 84px 0; }
+    .section-head { text-align: center; max-width: 42rem; margin: 0 auto 44px; }
+    .section-head h2 { font-size: clamp(1.9rem, 3.6vw, 2.5rem); }
+    .section-head p { color: var(--muted); margin-top: 14px; font-size: 1.05rem; }
+
+    .sound { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { background: var(--cream); border-radius: var(--radius); padding: 26px; border: 1px solid var(--line); }
+    .card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+    .card p { margin: 0; color: var(--muted); font-size: .97rem; }
+    @media (max-width: 860px) { .grid-3 { grid-template-columns: 1fr; } }
+
+    .formula { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 0 auto 40px; }
+    .chip { background: var(--white); border: 1px solid var(--line); border-radius: 999px; padding: 10px 20px; font-family: "Playfair Display", serif; font-size: 1.2rem; font-weight: 600; color: var(--teal); box-shadow: var(--shadow); }
+    .plus { align-self: center; color: var(--gold); font-weight: 700; font-size: 1.3rem; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 900px; margin: 0 auto; }
+    .ex { border-radius: var(--radius); padding: 24px; }
+    .ex .lbl { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 10px; }
+    .ex.bad { background: #EFEFEC; color: #555; }
+    .ex.good { background: var(--white); border: 2px solid var(--teal); box-shadow: var(--shadow); }
+    .ex.good .lbl { color: var(--teal); }
+    .ex pre { white-space: pre-wrap; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .85rem; margin: 0 0 14px; line-height: 1.55; }
+    .ex .result { background: #FBF5EA; border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; padding: 12px 14px; font-size: .93rem; color: #3a3326; }
+    .ex.bad .result { background: #E4E4E0; border-left-color: #B9B9B9; color: #555; }
+    @media (max-width: 760px) { .compare { grid-template-columns: 1fr; } }
+
+    .inside { background: var(--sand); }
+    .inside-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; align-items: center; }
+    .sample img { border-radius: 10px; box-shadow: var(--shadow); max-width: 340px; margin: 0 auto; }
+    .sample p { text-align: center; color: var(--muted); font-size: .85rem; margin-top: 12px; }
+    .list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+    .list li { display: flex; gap: 14px; align-items: flex-start; background: var(--white); border-radius: 14px; padding: 14px 18px; border: 1px solid var(--line); }
+    .check { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--teal-soft); color: var(--teal); display: grid; place-items: center; font-weight: 700; font-size: .85rem; }
+    .list strong { display: block; }
+    .list span { color: var(--muted); font-size: .94rem; }
+    @media (max-width: 860px) { .inside-grid { grid-template-columns: 1fr; } }
+
+    .bonus { max-width: 760px; margin: 0 auto; background: var(--teal); color: var(--white); border-radius: 28px; padding: 40px; text-align: center; }
+    .bonus .eyebrow { color: var(--gold-soft); }
+    .bonus h2 { color: var(--white); font-size: clamp(1.6rem, 3vw, 2.1rem); }
+    .bonus p { color: rgba(255,255,255,.86); margin: 14px auto 0; max-width: 34rem; }
+
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    details { border-bottom: 1px solid var(--line); padding: 20px 4px; }
+    summary { cursor: pointer; font-family: "Playfair Display", serif; font-size: 1.15rem; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--teal); font-family: Inter, sans-serif; font-size: 1.4rem; line-height: 1; }
+    details[open] summary::after { content: "\2013"; }
+    details p { color: var(--muted); margin: 12px 0 0; }
+
+    .final { text-align: center; background: var(--white); border-top: 1px solid var(--line); }
+    .final h2 { font-size: clamp(1.9rem, 3.6vw, 2.5rem); }
+    .final p { color: var(--muted); margin: 14px auto 28px; max-width: 34rem; }
+    footer { background: var(--teal-dark); color: rgba(255,255,255,.82); padding: 44px 0; font-size: .9rem; }
+    footer .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; }
+    footer a { color: var(--gold-soft); }
+    footer .fine { margin-top: 22px; border-top: 1px solid rgba(255,255,255,.15); padding-top: 18px; font-size: .8rem; color: rgba(255,255,255,.62); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">C</span> The Calm Scale AI</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#inside">What's inside</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-primary" href="https://buy.stripe.com/STRIPE_LINK_HERE">Get it for $9</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">A Calm Scale AI Guide</p>
+        <h1>Get AI to <em>actually help you.</em> Not sound like a robot.</h1>
+        <p class="lead">Prompt Like You Mean It is the busy woman's playbook for AI. One simple four-line formula, real before-and-after examples, and 10 copy-paste prompts for your emails, your content, your home, and your business.</p>
+        <div class="buy-row">
+          <a class="btn btn-primary" href="https://buy.stripe.com/STRIPE_LINK_HERE">Get the guide</a>
+          <div class="price-tag">$9<small>instant download</small></div>
+        </div>
+        <p class="note">31-page PDF + bonus My Prompts Library. Works with ChatGPT, Claude, Gemini, or any AI chat.</p>
+      </div>
+      <div class="book"><img src="cover.jpg" alt="Cover of Prompt Like You Mean It by Marie Adams" width="660" height="990"></div>
+    </div>
+  </section>
+
+  <section class="sound">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Sound familiar?</p>
+        <h2>You tried AI. It gave you something generic. You closed the tab.</h2>
+        <p>It's not that AI doesn't work for you. It's that nobody ever showed you how to talk to it.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card"><h3>It sounds like a textbook</h3><p>Stiff, wordy, and nothing like you. You end up rewriting the whole thing anyway.</p></div>
+        <div class="card"><h3>It misses the point</h3><p>You asked for dinner ideas and got recipes with ingredients you don't own and two hours you don't have.</p></div>
+        <div class="card"><h3>You don't have time to learn it</h3><p>Between work, kids, and everything else, you don't need a course. You need something that works tonight.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">The formula</p>
+        <h2>Four lines. That's the whole secret.</h2>
+        <p>Here's the same request, asked two ways. Same AI. Completely different result.</p>
+      </div>
+      <div class="formula" aria-label="Role plus Context plus Task plus Format">
+        <span class="chip">Role</span><span class="plus">+</span><span class="chip">Context</span><span class="plus">+</span><span class="chip">Task</span><span class="plus">+</span><span class="chip">Format</span>
+      </div>
+      <div class="compare">
+        <div class="ex bad">
+          <div class="lbl">The usual way</div>
+          <pre>Write me a caption for my food post.</pre>
+          <div class="result">Delicious and nutritious! 😋 Enjoy this tasty bowl packed with flavor. Perfect for any occasion! #food #yummy #foodie</div>
+        </div>
+        <div class="ex good">
+          <div class="lbl">With the formula</div>
+          <pre>Role: You are my social media bestie who writes in my voice: warm, playful, a little sassy.
+Context: Chicken shawarma bowl reel. My audience is busy moms who love easy weeknight meals.
+Task: A caption that makes them save the recipe.
+Format: Under 80 words, end with a question.</pre>
+          <div class="result">Okay, these chicken shawarma bowls are about to save your Tuesday. 🙌 Juicy spiced chicken, golden turmeric rice, all on the table in 30 minutes. Save this one so you're not scrambling at 5:45. Be honest: what's your go-to busy-night dinner right now?</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="inside" class="inside">
+    <div class="wrap inside-grid">
+      <div class="sample">
+        <img src="sample.jpg" alt="Sample page showing a prompt and what AI gave back" width="540" height="810" loading="lazy">
+        <p>Every example shows the prompt and what AI actually gave back.</p>
+      </div>
+      <div>
+        <p class="eyebrow">What's inside</p>
+        <h2 style="font-size: clamp(1.8rem, 3.4vw, 2.3rem); margin-bottom: 24px;">Short, practical, and written like a friend is showing you.</h2>
+        <ul class="list">
+          <li><span class="check">1</span><div><strong>Why your prompts keep failing</strong><span>The three mistakes behind almost every bad AI answer.</span></div></li>
+          <li><span class="check">2</span><div><strong>The formula</strong><span>Role + Context + Task + Format, plus the "secret weapon" for matching your voice.</span></div></li>
+          <li><span class="check">3</span><div><strong>Everyday prompts</strong><span>Emails that sound like you, a week of dinners, captions, and the touchy family text.</span></div></li>
+          <li><span class="check">4</span><div><strong>Business prompts</strong><span>Lead follow-ups, price objections, voice notes into emails, and decoding long documents.</span></div></li>
+          <li><span class="check">5</span><div><strong>Make it a habit</strong><span>How to tweak instead of restart, and when NOT to use AI.</span></div></li>
+          <li><span class="check">6</span><div><strong>10 copy-paste starter prompts</strong><span>Fill in the brackets and go. No blank pages.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="bonus">
+        <p class="eyebrow">Included free</p>
+        <h2>Bonus: the My Prompts Library</h2>
+        <p>A ready-to-use template that opens in Google Docs or Word, organized into Emails, Content, Home, and Business. All 10 starter prompts are already loaded, with blank slots to save your own winners as you go.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top: 20px;">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Questions</p><h2>Good to know</h2></div>
+      <div class="faq-list">
+        <details><summary>Which AI tool do I need?</summary><p>Any of them. The formula works the same in ChatGPT, Claude, Gemini, Copilot, or whatever AI chat you already use, including the free versions.</p></details>
+        <details><summary>I'm not techy. Is this for me?</summary><p>Yes. That's exactly who it's for. No jargon, no coding, no settings to configure. If you can send a text message, you can use this formula.</p></details>
+        <details><summary>How do I get it?</summary><p>Right after checkout, you'll land on a download page for the PDF and the My Prompts Library. Save them to your phone or computer so you always have them.</p></details>
+        <details><summary>How long is it?</summary><p>31 pages, made to read in one sitting. Most people read it in under an hour and use their first prompt the same day.</p></details>
+        <details><summary>Can I get a refund?</summary><p>Because it's a digital download delivered instantly, all sales are final. If you have trouble downloading, email <a href="mailto:calmscaleai@gmail.com">calmscaleai@gmail.com</a> and we'll make it right.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2>Stop staring at the blank box.</h2>
+      <p>For less than a lunch out, get the formula, the examples, and the prompts that make AI sound like you.</p>
+      <a class="btn btn-primary" href="https://buy.stripe.com/STRIPE_LINK_HERE">Get Prompt Like You Mean It &ndash; $9</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><strong style="color: var(--white);">The Calm Scale AI</strong><br>Simple automations for busy small businesses. <a href="../">See the Lead Follow-Up Kit</a></div>
+      <div>Questions? <a href="mailto:calmscaleai@gmail.com">calmscaleai@gmail.com</a><br><a href="../terms/">Terms &amp; Refund Policy</a></div>
+    </div>
+    <p class="fine">&copy; 2026 The Calm Scale AI. Prompt Like You Mean It by Marie Adams. Example AI outputs are illustrative; your results will vary.</p>
+  </div>
+</footer>
+</body>
+</html>
