@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What Should I Automate First? | The Calm Scale AI</title>
+  <meta name="description" content="A free 2-minute quiz for busy small business owners. Answer 9 quick questions and find the one automation that would give you the most time back.">
+  <meta property="og:title" content="What Should I Automate First?">
+  <meta property="og:description" content="Free 2-minute quiz: find the one automation that would give you the most time back.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal: #1F5C5A; --teal-dark: #174744; --teal-soft: #E3EFEC;
+      --cream: #FAF6EE; --sand: #F3ECDD; --gold: #C9A24A; --gold-soft: #F4E7C4;
+      --ink: #26302F; --muted: #5F6B69; --line: #E4DCCB; --white: #FFFFFF;
+      --radius: 18px;
+      --shadow: 0 1px 2px rgba(31,92,90,.06), 0 16px 40px -20px rgba(31,92,90,.35);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; display: flex; flex-direction: column; }
+    h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; line-height: 1.15; margin: 0; color: var(--ink); }
+    a { color: var(--teal); }
+    .wrap { width: 100%; max-width: 720px; margin: 0 auto; padding: 0 20px; }
+    .eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--teal); margin: 0 0 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 26px; border-radius: 999px; font-weight: 600; font-size: 1rem; text-decoration: none; border: 2px solid transparent; cursor: pointer; font-family: inherit; transition: transform .15s ease, background .15s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--teal); color: var(--white); box-shadow: 0 10px 22px -10px rgba(31,92,90,.8); }
+    .btn-primary:hover { background: var(--teal-dark); }
+    .btn-outline { background: transparent; color: var(--teal); border-color: rgba(31,92,90,.3); }
+    .btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+    .btn[disabled] { opacity: .6; cursor: default; transform: none; }
+
+    header { background: rgba(250,246,238,.92); border-bottom: 1px solid rgba(31,92,90,.1); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: 1080px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 700; }
+    .brand-mark { width: 34px; height: 34px; border-radius: 50%; background: var(--teal); color: var(--white); display: grid; place-items: center; font-family: "Playfair Display", serif; }
+
+    main { flex: 1; position: relative; overflow: hidden; overflow: clip; padding: 48px 0 72px; }
+    main::before { content: ""; position: absolute; inset: -20% -25% auto auto; width: 75%; height: 90%; background: radial-gradient(circle at 60% 40%, rgba(244,231,196,.85), transparent 60%), radial-gradient(circle at 85% 70%, rgba(227,239,236,.95), transparent 55%); pointer-events: none; }
+    .screen { position: relative; display: none; }
+    .screen.active { display: block; animation: fade .35s ease; }
+    @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .screen.active { animation: none; } .btn { transition: none; } }
+
+    /* Intro */
+    .intro h1 { font-size: clamp(2.2rem, 6vw, 3.3rem); }
+    .intro h1 em { font-style: normal; color: var(--teal); }
+    .intro .lead { font-size: 1.12rem; color: var(--muted); margin: 18px 0 26px; }
+    .perks { list-style: none; padding: 0; margin: 0 0 30px; display: grid; gap: 10px; }
+    .perks li { display: flex; gap: 12px; align-items: center; color: var(--ink); }
+    .dot { flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--teal-soft); color: var(--teal); display: grid; place-items: center; font-weight: 700; font-size: .8rem; }
+    .small { font-size: .88rem; color: var(--muted); margin-top: 14px; }
+
+    /* Question */
+    .card { background: var(--white); border: 1px solid var(--line); border-radius: 24px; padding: 30px; box-shadow: var(--shadow); }
+    .progress-row { display: flex; justify-content: space-between; align-items: center; font-size: .85rem; color: var(--muted); margin-bottom: 10px; }
+    .back { background: none; border: none; color: var(--teal); font: inherit; font-weight: 600; cursor: pointer; padding: 4px 0; }
+    .back[hidden] { display: none; }
+    .bar { height: 6px; background: var(--sand); border-radius: 99px; overflow: hidden; margin-bottom: 26px; }
+    .bar span { display: block; height: 100%; width: 0; background: var(--teal); border-radius: 99px; transition: width .3s ease; }
+    .q-title { font-size: clamp(1.45rem, 4vw, 1.85rem); margin-bottom: 8px; }
+    .q-help { color: var(--muted); margin: 0 0 22px; font-size: .97rem; }
+    .options { display: grid; gap: 10px; }
+    .opt { text-align: left; width: 100%; background: var(--cream); border: 2px solid var(--line); border-radius: 14px; padding: 15px 18px; font: inherit; font-size: 1rem; color: var(--ink); cursor: pointer; transition: border-color .15s ease, background .15s ease; display: flex; gap: 12px; align-items: center; }
+    .opt:hover { border-color: rgba(31,92,90,.45); background: var(--white); }
+    .opt.selected { border-color: var(--teal); background: var(--teal-soft); }
+    .opt .key { flex-shrink: 0; width: 28px; height: 28px; border-radius: 8px; background: var(--white); border: 1px solid var(--line); display: grid; place-items: center; font-size: .8rem; font-weight: 700; color: var(--teal); }
+
+    /* Email gate */
+    .field { display: grid; gap: 6px; margin-bottom: 16px; }
+    .field label { font-weight: 600; font-size: .92rem; }
+    .field input[type=text], .field input[type=email] { font: inherit; padding: 13px 15px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--cream); color: var(--ink); }
+    .consent { display: flex; gap: 10px; align-items: flex-start; font-size: .9rem; color: var(--muted); margin: 4px 0 20px; }
+    .consent input { margin-top: 4px; accent-color: var(--teal); }
+    .form-error { color: #B23B2E; font-size: .9rem; margin: 0 0 14px; display: none; }
+    .skip { display: block; margin: 16px auto 0; background: none; border: none; color: var(--muted); font: inherit; font-size: .9rem; text-decoration: underline; cursor: pointer; }
+
+    /* Results */
+    .result-hero { text-align: center; margin-bottom: 28px; }
+    .result-hero h1 { font-size: clamp(2rem, 5.5vw, 2.9rem); margin-top: 6px; }
+    .result-hero p { color: var(--muted); margin: 14px auto 0; max-width: 34rem; font-size: 1.05rem; }
+    .top { background: var(--teal); color: var(--white); border-radius: 26px; padding: 32px; box-shadow: var(--shadow); }
+    .top .eyebrow { color: var(--gold-soft); }
+    .top h2 { color: var(--white); font-size: clamp(1.6rem, 4vw, 2.1rem); margin-bottom: 12px; }
+    .top p { margin: 0 0 14px; color: rgba(255,255,255,.9); }
+    .why { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 8px; }
+    .why li { background: rgba(255,255,255,.1); border-radius: 12px; padding: 10px 14px; font-size: .95rem; }
+    .section-label { font-family: "Playfair Display", serif; font-size: 1.35rem; font-weight: 700; margin: 40px 0 14px; }
+    .next { display: grid; gap: 14px; }
+    .next-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+    .next-card.primary { border: 2px solid var(--teal); box-shadow: var(--shadow); }
+    .next-card .tag { display: inline-block; background: var(--gold-soft); color: var(--teal-dark); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; }
+    .next-card h3 { font-size: 1.25rem; margin-bottom: 6px; }
+    .next-card p { color: var(--muted); margin: 0 0 16px; font-size: .97rem; }
+    .runners { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .runner { background: var(--sand); border-radius: var(--radius); padding: 20px; }
+    .runner h3 { font-size: 1.1rem; margin-bottom: 6px; }
+    .runner p { color: var(--muted); margin: 0; font-size: .93rem; }
+    @media (max-width: 600px) { .runners { grid-template-columns: 1fr; } .card, .top { padding: 22px; } }
+    .sent-note { text-align: center; font-size: .92rem; color: var(--muted); margin-top: 28px; }
+    .retake { text-align: center; margin-top: 10px; }
+    .retake button { background: none; border: none; color: var(--teal); font: inherit; font-weight: 600; cursor: pointer; text-decoration: underline; }
+
+    footer { background: var(--teal-dark); color: rgba(255,255,255,.82); padding: 36px 0; font-size: .9rem; }
+    footer .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; max-width: 1080px; }
+    footer a { color: var(--gold-soft); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">C</span> The Calm Scale AI</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- Intro -->
+    <section class="screen intro active" id="intro" aria-labelledby="introTitle">
+      <p class="eyebrow">Free 2-minute quiz</p>
+      <h1 id="introTitle">What should you <em>automate first?</em></h1>
+      <p class="lead">You don't need to automate everything. You need to start with the one thing that's quietly costing you the most time, money, or clients. Answer 9 quick questions and you'll know exactly what it is.</p>
+      <ul class="perks">
+        <li><span class="dot">1</span> Your #1 automation, and why it's the one</li>
+        <li><span class="dot">2</span> Two runner-ups to tackle next</li>
+        <li><span class="dot">3</span> A simple next step that fits how hands-on you want to be</li>
+      </ul>
+      <button class="btn btn-primary" id="startBtn">Start the quiz</button>
+      <p class="small">No tech know-how needed. Just tap the answer that sounds most like you.</p>
+    </section>
+
+    <!-- Questions -->
+    <section class="screen" id="quiz" aria-live="polite">
+      <div class="card">
+        <div class="progress-row">
+          <button class="back" id="backBtn" hidden>&larr; Back</button>
+          <span id="progressText"></span>
+        </div>
+        <div class="bar" aria-hidden="true"><span id="progressBar"></span></div>
+        <h2 class="q-title" id="qTitle"></h2>
+        <p class="q-help" id="qHelp"></p>
+        <div class="options" id="options" role="group" aria-labelledby="qTitle"></div>
+      </div>
+    </section>
+
+    <!-- Email gate -->
+    <section class="screen" id="gate" aria-labelledby="gateTitle">
+      <div class="card">
+        <p class="eyebrow">Your results are ready</p>
+        <h2 class="q-title" id="gateTitle">Where should I send your results?</h2>
+        <p class="q-help">I'll email you a copy of your results so you have them handy, plus a few simple tips for getting started. No spam, and you can unsubscribe anytime.</p>
+        <form id="gateForm" novalidate>
+          <div class="field"><label for="name">First name</label><input type="text" id="name" autocomplete="given-name"></div>
+          <div class="field"><label for="email">Email</label><input type="email" id="email" autocomplete="email"></div>
+          <label class="consent"><input type="checkbox" id="consent"> Yes, email me my results and occasional tips from The Calm Scale AI.</label>
+          <p class="form-error" id="gateError" role="alert"></p>
+          <button class="btn btn-primary" type="submit" id="gateBtn" style="width:100%">Show my results</button>
+        </form>
+        <button class="skip" id="skipBtn">Skip, just show me my results</button>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="screen" id="results" aria-live="polite"></section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><strong style="color: var(--white);">The Calm Scale AI</strong><br>Simple automations for busy small businesses.</div>
+    <div>Questions? <a href="mailto:calmscaleai@gmail.com">calmscaleai@gmail.com</a><br><a href="../terms/">Terms &amp; Refund Policy</a></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var WEBHOOK = 'https://hook.us2.make.com/bhvsy98e1t64bk5tjnfwd9r3rnrpfjhs';
+  var LINKS = {
+    diyKit: 'https://buy.stripe.com/8x2eVe5LX7TIeoH9Dv5gc01',
+    kitWebsite: 'https://buy.stripe.com/fZu9AUfmx1vk3K3aHz5gc02',
+    setup: '../#request',
+    kitPage: '../',
+    guide: '../prompt-guide/'
+  };
+
+  // Each answer adds points to one or more automations.
+  var QUESTIONS = [
+    { id: 'business', title: 'What kind of business do you run?', help: 'Pick the closest fit.',
+      options: [
+        { label: 'Mortgage / loan officer', value: 'mortgage', pts: { leads: 2, onboarding: 2 } },
+        { label: 'Real estate', value: 'realestate', pts: { leads: 2, reviews: 1 } },
+        { label: 'Salon, spa, or beauty', value: 'beauty', pts: { reminders: 2, reviews: 1 } },
+        { label: 'Home services or contractor', value: 'home', pts: { invoices: 1, reviews: 1, reminders: 1 } },
+        { label: 'Coach, consultant, or creative', value: 'coach', pts: { onboarding: 1, inbox: 1, leads: 1 } },
+        { label: 'Something else', value: 'other', pts: {} }
+      ] },
+    { id: 'leadSpeed', title: 'When a new lead reaches out, how fast do they usually hear back?', help: 'Be honest. Nobody is grading you.',
+      options: [
+        { label: 'Within minutes', value: 'minutes', pts: {} },
+        { label: 'Same day', value: 'sameday', pts: { leads: 1 } },
+        { label: 'A day or two later', value: 'days', pts: { leads: 3 } },
+        { label: 'Sometimes... never', value: 'never', pts: { leads: 4 } },
+        { label: "I don't get many leads yet", value: 'fewleads', pts: {} }
+      ] },
+    { id: 'timeEater', title: 'Which of these eats the most of your week?', help: 'Pick the one that makes you sigh the loudest.',
+      options: [
+        { label: 'Following up with new leads', value: 'leads', pts: { leads: 3 } },
+        { label: 'Reminding people about appointments', value: 'reminders', pts: { reminders: 3 } },
+        { label: 'Chasing documents, forms, or info from clients', value: 'onboarding', pts: { onboarding: 3 } },
+        { label: 'Chasing unpaid invoices', value: 'invoices', pts: { invoices: 3 } },
+        { label: 'Answering the same questions over and over', value: 'inbox', pts: { inbox: 3 } },
+        { label: 'Remembering to ask for reviews and referrals', value: 'reviews', pts: { reviews: 3 } }
+      ] },
+    { id: 'noShows', title: 'How often do clients no-show or forget an appointment?',
+      options: [
+        { label: 'Rarely', value: 'rarely', pts: {} },
+        { label: 'A few times a month', value: 'monthly', pts: { reminders: 2 } },
+        { label: 'Every week, it feels like', value: 'weekly', pts: { reminders: 4 } },
+        { label: "I don't really book appointments", value: 'none', pts: {} }
+      ] },
+    { id: 'newClient', title: 'When a new client says yes, how do you get them started?',
+      options: [
+        { label: 'It’s automatic: welcome email, forms, the works', value: 'auto', pts: {} },
+        { label: 'I send the emails and forms myself', value: 'manual', pts: { onboarding: 2 } },
+        { label: 'Lots of back-and-forth texting to get what I need', value: 'chasing', pts: { onboarding: 4 } }
+      ] },
+    { id: 'repeatQs', title: 'How many of your emails and DMs are basically the same question?',
+      options: [
+        { label: 'Hardly any', value: 'few', pts: {} },
+        { label: 'Some of them', value: 'some', pts: { inbox: 2 } },
+        { label: 'Most of them, honestly', value: 'most', pts: { inbox: 4 } }
+      ] },
+    { id: 'payments', title: 'How do you usually get paid?',
+      options: [
+        { label: 'Up front, before the work', value: 'upfront', pts: {} },
+        { label: 'I invoice and people usually pay on time', value: 'ontime', pts: { invoices: 1 } },
+        { label: 'I invoice, then end up chasing late payments', value: 'chase', pts: { invoices: 4 } }
+      ] },
+    { id: 'reviews', title: 'After you finish working with a client, do you ask for a review?',
+      options: [
+        { label: 'Yes, it happens automatically', value: 'auto', pts: {} },
+        { label: 'Sometimes, when I remember', value: 'sometimes', pts: { reviews: 2 } },
+        { label: 'Not really', value: 'never', pts: { reviews: 3 } }
+      ] },
+    { id: 'comfort', title: 'Last one: how do you feel about setting up tech tools?', help: 'This helps me suggest the right next step for you.',
+      options: [
+        { label: 'I like figuring things out myself', value: 'diy', pts: {} },
+        { label: "I'm willing if there's a step-by-step guide", value: 'guided', pts: {} },
+        { label: "I'd rather someone just do it for me", value: 'dfy', pts: {} },
+        { label: "I haven't really used AI or automation yet", value: 'new', pts: {} }
+      ] }
+  ];
+
+  var AUTOMATIONS = {
+    leads: { title: 'Lead follow-up', what: 'Every new inquiry gets a warm, personal reply from you within seconds, and you get an alert to call them while they’re still interested.', short: 'Every new lead gets an instant, personal reply.' },
+    reminders: { title: 'Appointment reminders', what: 'Clients get a friendly reminder before every appointment, with an easy way to confirm or reschedule, so fewer people forget and fewer chairs sit empty.', short: 'Friendly reminders that cut down on no-shows.' },
+    onboarding: { title: 'Client onboarding', what: 'When someone says yes, they automatically get your welcome email, your forms, and a checklist of what to send, and you get a heads-up when it’s all in.', short: 'Welcome emails and forms that go out on their own.' },
+    invoices: { title: 'Invoice & payment reminders', what: 'Polite reminders go out on their own before and after a due date, so you can stop being the bill collector.', short: 'Polite payment reminders you never have to send.' },
+    inbox: { title: 'Repeat-question replies', what: 'The questions you answer over and over get a ready, personal-sounding reply, so your inbox stops running your day.', short: 'Ready replies for the questions you always get.' },
+    reviews: { title: 'Review & referral requests', what: 'A few days after you finish, every happy client gets a thank-you and a one-tap link to leave a review or send a referral. Every single time.', short: 'A thank-you and review link after every job.' }
+  };
+  var ORDER = ['leads', 'reminders', 'onboarding', 'invoices', 'inbox', 'reviews'];
+
+  var answers = {};
+  var current = 0;
+  var lead = null;
+
+  function $(id) { return document.getElementById(id); }
+  function show(id) {
+    document.querySelectorAll('.screen').forEach(function (s) { s.classList.remove('active'); });
+    $(id).classList.add('active');
+    document.querySelector('main').scrollLeft = 0;
+    window.scrollTo(0, 0);
+  }
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+
+  function renderQuestion() {
+    var q = QUESTIONS[current];
+    $('progressText').textContent = 'Question ' + (current + 1) + ' of ' + QUESTIONS.length;
+    $('progressBar').style.width = ((current) / QUESTIONS.length * 100) + '%';
+    $('backBtn').hidden = current === 0;
+    $('qTitle').textContent = q.title;
+    $('qHelp').textContent = q.help || '';
+    $('qHelp').style.display = q.help ? 'block' : 'none';
+    var box = $('options');
+    box.innerHTML = '';
+    q.options.forEach(function (o, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'opt' + (answers[q.id] === o.value ? ' selected' : '');
+      b.innerHTML = '<span class="key">' + String.fromCharCode(65 + i) + '</span><span>' + esc(o.label) + '</span>';
+      b.addEventListener('click', function () { choose(q, o, b); });
+      box.appendChild(b);
+    });
+  }
+
+  function choose(q, o, btn) {
+    answers[q.id] = o.value;
+    document.querySelectorAll('.opt').forEach(function (x) { x.classList.remove('selected'); });
+    btn.classList.add('selected');
+    setTimeout(function () {
+      if (current < QUESTIONS.length - 1) { current++; renderQuestion(); }
+      else { $('progressBar').style.width = '100%'; show('gate'); }
+    }, 220);
+  }
+
+  function score() {
+    var s = {};
+    ORDER.forEach(function (k) { s[k] = 0; });
+    QUESTIONS.forEach(function (q) {
+      var o = q.options.filter(function (x) { return x.value === answers[q.id]; })[0];
+      if (!o) return;
+      Object.keys(o.pts).forEach(function (k) { s[k] += o.pts[k]; });
+    });
+    var ranked = ORDER.slice().sort(function (a, b) { return s[b] - s[a] || ORDER.indexOf(a) - ORDER.indexOf(b); });
+    return { scores: s, ranked: ranked };
+  }
+
+  function reasons(top) {
+    var a = answers, r = [];
+    if (top === 'leads') {
+      if (a.leadSpeed === 'days' || a.leadSpeed === 'never') r.push('You said new leads sometimes wait a day or more to hear back. The first person to reply often wins the business.');
+      if (a.leadSpeed === 'sameday') r.push('You reply the same day, which is good. Replying within minutes is how you beat whoever else they contacted.');
+      if (a.timeEater === 'leads') r.push('Following up with leads is the part of your week that drains you most.');
+      if (a.business === 'mortgage' || a.business === 'realestate') r.push('In your industry, speed to lead is everything, and buyers usually reach out to more than one person.');
+    }
+    if (top === 'reminders') {
+      if (a.noShows === 'weekly' || a.noShows === 'monthly') r.push('You’re dealing with no-shows ' + (a.noShows === 'weekly' ? 'every week' : 'a few times a month') + '. Every one is time and money you can’t get back.');
+      if (a.timeEater === 'reminders') r.push('Sending reminders yourself is taking up more of your week than anything else.');
+      if (a.business === 'beauty') r.push('For appointment-based businesses, reminders are one of the fastest wins there is.');
+    }
+    if (top === 'onboarding') {
+      if (a.newClient === 'chasing') r.push('You said getting a new client started means lots of back-and-forth texting. That’s exactly what a system can take off your plate.');
+      if (a.newClient === 'manual') r.push('You’re sending welcome emails and forms by hand for every new client.');
+      if (a.timeEater === 'onboarding') r.push('Chasing documents and info is the biggest drain on your week.');
+      if (a.business === 'mortgage') r.push('You already know how much of a file is waiting on documents. Automatic checklists and nudges keep things moving.');
+    }
+    if (top === 'invoices') {
+      if (a.payments === 'chase') r.push('You’re invoicing and then chasing late payments. Automatic reminders do the awkward part for you.');
+      if (a.timeEater === 'invoices') r.push('Chasing unpaid invoices is what eats the most of your week.');
+    }
+    if (top === 'inbox') {
+      if (a.repeatQs === 'most' || a.repeatQs === 'some') r.push('You said ' + (a.repeatQs === 'most' ? 'most' : 'a good chunk') + ' of your emails and DMs are the same questions.');
+      if (a.timeEater === 'inbox') r.push('Answering the same questions over and over is your biggest time drain.');
+    }
+    if (top === 'reviews') {
+      if (a.reviews === 'never' || a.reviews === 'sometimes') r.push('You ' + (a.reviews === 'never' ? 'don’t usually ask' : 'only ask when you remember') + ' for reviews, which means happy clients are leaving without spreading the word.');
+      if (a.timeEater === 'reviews') r.push('You know reviews and referrals matter, and remembering to ask is the hard part.');
+    }
+    if (!r.length) r.push('Based on your answers, this is where a little automation would give you the most breathing room.');
+    return r.slice(0, 3);
+  }
+
+  function nextSteps(top) {
+    var c = answers.comfort, steps = [];
+    var guide = { label: 'Start today', title: 'Prompt Like You Mean It, $9', text: 'My simple four-line formula for getting AI to actually help you, plus 10 copy-paste prompts for emails, follow-ups, and more. A great first step if AI still feels new.', cta: 'Get the guide', url: LINKS.guide };
+    if (top === 'leads') {
+      var diy = { label: 'Recommended', title: 'Lead Follow-Up Kit, $49', text: 'The ready-made automation, step-by-step setup guide, and email templates. It runs in your own Google and Make accounts. Most people finish setup in about an hour.', cta: 'Get the DIY Kit', url: LINKS.diyKit };
+      var setup = { label: 'Recommended', title: 'Done-For-You Setup, $125', text: 'I set up the whole Lead Follow-Up system for you, in your own accounts. Everything happens by email, and you never share a password.', cta: 'Request setup', url: LINKS.setup };
+      var site = { label: 'Also a great fit', title: 'Kit + Website Template, $175', text: 'Everything in the DIY Kit, plus a ready-made one-page website with your lead form built in.', cta: 'See the Kit + Website', url: LINKS.kitWebsite };
+      if (c === 'dfy' || c === 'new') { steps.push(setup); diy.label = 'Prefer to do it yourself?'; steps.push(diy); }
+      else { steps.push(diy); steps.push(site); }
+    } else {
+      var t = AUTOMATIONS[top].title;
+      var build = { label: c === 'new' ? 'When you’re ready' : 'Recommended', title: 'Have it built for you', text: 'I can map out your ' + t.toLowerCase() + ' and build it for you, in your own accounts, with a simple walkthrough video at the end. Email me and tell me a little about your business.', cta: 'Ask about a build', url: 'mailto:calmscaleai@gmail.com?subject=' + encodeURIComponent('Quiz result: ' + t) + '&body=' + encodeURIComponent('Hi Marie! My quiz result was ' + t + '. Here’s a little about my business: ') };
+      if (c === 'new') { guide.label = 'Recommended'; steps.push(guide); steps.push(build); }
+      else { steps.push(build); guide.label = 'Start today'; steps.push(guide); }
+    }
+    return steps;
+  }
+
+  function renderResults(sent) {
+    var res = score();
+    var max = res.scores[res.ranked[0]];
+    var top = max >= 3 ? res.ranked[0] : null;
+    var A = AUTOMATIONS;
+    var name = lead && lead.name ? esc(lead.name) : '';
+    var html = '';
+
+    if (!top) {
+      html += '<div class="result-hero"><p class="eyebrow">Your results</p><h1>' + (name ? name + ', you’re' : 'You’re') + ' already running pretty calm.</h1><p>Nothing in your answers is screaming for help right now, and that’s a great place to be. The best next move is getting comfortable using AI for the small stuff, so you’re ready when your business grows.</p></div>';
+      html += '<div class="next">' + cardHTML({ label: 'Recommended', title: 'Prompt Like You Mean It, $9', text: 'My simple four-line formula for getting AI to actually help you, plus 10 copy-paste prompts for emails, follow-ups, and more.', cta: 'Get the guide', url: LINKS.guide }, true) + '</div>';
+    } else {
+      var runners = res.ranked.slice(1, 3);
+      html += '<div class="result-hero"><p class="eyebrow">Your results</p><h1>' + (name ? name + ', automate this first:' : 'Automate this first:') + '</h1><p>Here’s the one thing that would give you the most time back, plus two to tackle next.</p></div>';
+      html += '<div class="top"><p class="eyebrow">Your #1 automation</p><h2>' + A[top].title + '</h2><p>' + A[top].what + '</p><p style="margin:0;font-weight:600;color:var(--white)">Why this one, for you:</p><ul class="why">' + reasons(top).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>';
+      html += '<p class="section-label">Your next step</p><div class="next">' + nextSteps(top).map(function (s, i) { return cardHTML(s, i === 0); }).join('') + '</div>';
+      html += '<p class="section-label">Tackle these next</p><div class="runners">' + runners.map(function (k) {
+        var extra = k === 'leads' ? ' <a href="' + LINKS.kitPage + '">See the Lead Follow-Up Kit</a>' : '';
+        return '<div class="runner"><h3>' + A[k].title + '</h3><p>' + A[k].short + extra + '</p></div>';
+      }).join('') + '</div>';
+    }
+    if (sent) html += '<p class="sent-note">A copy of your results is on its way to your inbox.</p>';
+    html += '<p class="retake"><button type="button" id="retakeBtn">Retake the quiz</button></p>';
+    $('results').innerHTML = html;
+    $('retakeBtn').addEventListener('click', function () { answers = {}; current = 0; renderQuestion(); show('quiz'); });
+    show('results');
+    return { top: top, runners: top ? res.ranked.slice(1, 3) : [], scores: res.scores };
+  }
+
+  function cardHTML(s, primary) {
+    var ext = /^https?:/.test(s.url) ? ' target="_blank" rel="noopener"' : '';
+    return '<div class="next-card' + (primary ? ' primary' : '') + '"><span class="tag">' + esc(s.label) + '</span><h3>' + esc(s.title) + '</h3><p>' + esc(s.text) + '</p><a class="btn ' + (primary ? 'btn-primary' : 'btn-outline') + '" href="' + s.url + '"' + ext + '>' + esc(s.cta) + '</a></div>';
+  }
+
+  function sendLead(r) {
+    var A = AUTOMATIONS;
+    var steps = r.top ? nextSteps(r.top) : [{ title: 'Prompt Like You Mean It, $9', url: LINKS.guide }];
+    var abs = function (u) { return /^(https?:|mailto:)/.test(u) ? u : new URL(u, location.href).href; };
+    var params = new URLSearchParams({
+      formType: 'quiz_lead',
+      name: lead.name,
+      email: lead.email,
+      business: answers.business || '',
+      kitVersion: answers.business === 'mortgage' ? 'Loan Officer' : answers.business === 'realestate' ? 'Real Estate Agent' : 'General Business',
+      comfort: answers.comfort || '',
+      topKey: r.top || 'calm',
+      topTitle: r.top ? A[r.top].title : 'Already running pretty calm',
+      topWhat: r.top ? A[r.top].what : 'Nothing in your answers is screaming for help right now.',
+      reasons: r.top ? reasons(r.top).join(' | ') : '',
+      runnerUps: r.runners.map(function (k) { return A[k].title; }).join(', '),
+      nextStepTitle: steps[0].title,
+      nextStepUrl: abs(steps[0].url),
+      answers: JSON.stringify(answers),
+      scores: JSON.stringify(r.scores),
+      consent: 'Yes, email me my results and occasional tips from The Calm Scale AI.'
+    });
+    try { fetch(WEBHOOK, { method: 'POST', mode: 'no-cors', body: params }); } catch (e) { /* results still show */ }
+  }
+
+  $('startBtn').addEventListener('click', function () { renderQuestion(); show('quiz'); });
+  $('backBtn').addEventListener('click', function () { if (current > 0) { current--; renderQuestion(); } });
+  $('skipBtn').addEventListener('click', function () { lead = null; renderResults(false); });
+  $('gateForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var err = $('gateError');
+    var n = $('name').value.trim(), m = $('email').value.trim(), missing = [];
+    if (!n) missing.push('your first name');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)) missing.push('a valid email');
+    if (!$('consent').checked) missing.push('a check in the box so I can email you');
+    if (missing.length) { err.textContent = 'Please add ' + missing.join(', ') + '.'; err.style.display = 'block'; return; }
+    err.style.display = 'none';
+    lead = { name: n, email: m };
+    var r = renderResults(true);
+    sendLead(r);
+  });
+})();
+</script>
+</body>
+</html>
