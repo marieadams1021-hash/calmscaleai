@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Setup Intake | The Calm Scale AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --teal: #1F5C5A; --teal-dark: #174744; --teal-soft: #E3EFEC; --cream: #FAF6EE; --gold: #C9A24A; --gold-soft: #F4E7C4; --ink: #26302F; --muted: #5F6B69; --line: #E4DCCB; --white: #FFFFFF; --error: #A8322D; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    h1, h2 { font-family: "Playfair Display", Georgia, serif; line-height: 1.15; margin: 0; }
+    a { color: var(--teal); }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+    header { border-bottom: 1px solid rgba(31,92,90,.1); }
+    .nav { display: flex; align-items: center; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 700; }
+    .brand-mark { width: 34px; height: 34px; border-radius: 50%; background: var(--teal); color: var(--white); display: grid; place-items: center; font-family: "Playfair Display", serif; }
+    main { padding: 48px 0 72px; }
+    .eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--teal); margin: 0 0 12px; }
+    h1 { font-size: clamp(2rem, 5vw, 2.6rem); }
+    .lead { color: var(--muted); font-size: 1.05rem; margin: 14px 0 26px; }
+    .note { background: var(--gold-soft); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; padding: 14px 18px; margin-bottom: 26px; font-size: .95rem; }
+    form { background: var(--white); border: 1px solid var(--line); border-radius: 20px; padding: 28px 24px; box-shadow: 0 1px 2px rgba(31,92,90,.06), 0 16px 40px -24px rgba(31,92,90,.35); }
+    fieldset { border: 0; padding: 0; margin: 0 0 28px; }
+    legend { font-family: "Playfair Display", Georgia, serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 14px; padding: 0; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .full { grid-column: 1 / -1; }
+    label { display: block; font-weight: 600; font-size: .92rem; margin-bottom: 6px; }
+    .hint { display: block; font-weight: 400; color: var(--muted); font-size: .84rem; margin-top: 2px; }
+    input[type=text], input[type=email], input[type=tel], input[type=url], select, textarea { width: 100%; font: inherit; font-size: 1rem; padding: 11px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--white); color: var(--ink); }
+    textarea { min-height: 96px; resize: vertical; }
+    input:focus, select:focus, textarea:focus { outline: 3px solid var(--teal-soft); border-color: var(--teal); }
+    .checks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
+    .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; font-size: .95rem; margin: 0; }
+    .check input { margin-top: 5px; width: 18px; height: 18px; accent-color: var(--teal); flex-shrink: 0; }
+    .req { color: var(--error); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; width: 100%; padding: 14px 20px; border: 0; border-radius: 999px; font: inherit; font-weight: 600; font-size: 1.05rem; cursor: pointer; background: var(--teal); color: var(--white); }
+    .btn:hover { background: var(--teal-dark); }
+    .btn:disabled { opacity: .6; cursor: default; }
+    .btn:focus-visible, a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+    #formError { display: none; color: var(--error); background: #FBECEA; border-radius: 10px; padding: 12px 14px; margin-bottom: 16px; font-size: .95rem; }
+    #formSuccess { display: none; background: var(--white); border: 1px solid var(--line); border-radius: 20px; padding: 34px 26px; text-align: center; }
+    #formSuccess h2 { font-size: 1.7rem; margin-bottom: 10px; }
+    #formSuccess p { color: var(--muted); margin: 0; }
+    footer { text-align: center; color: var(--muted); font-size: .88rem; padding: 0 20px 40px; }
+    @media (max-width: 600px) { .grid, .checks { grid-template-columns: 1fr; } form { padding: 22px 16px; } }
+  </style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">C</span> The Calm Scale AI</a></div></header>
+<main>
+  <div class="wrap">
+    <p class="eyebrow">Done-For-You Setup</p>
+    <h1>Let's get your lead system set up.</h1>
+    <p class="lead">This form gives me everything I need to build your Lead Follow-Up system in one go, so there's no back-and-forth. It takes about 10 minutes.</p>
+    <div class="note"><strong>Please never send a password.</strong> Not here, and not by email. Everything is set up in your own Google and Make accounts, and you'll just click a couple of approval links when I send them.</div>
+
+    <form id="intakeForm" novalidate>
+      <div id="formError" role="alert"></div>
+
+      <fieldset>
+        <legend>About you</legend>
+        <div class="grid">
+          <div><label for="name">Full name <span class="req">*</span></label><input type="text" id="name" autocomplete="name"></div>
+          <div><label for="email">Email you used at checkout <span class="req">*</span></label><input type="email" id="email" autocomplete="email"></div>
+          <div><label for="phone">Phone <span class="hint">Optional, only if you'd like a text when it's ready</span></label><input type="tel" id="phone" autocomplete="tel"></div>
+          <div><label for="business">Business name <span class="req">*</span></label><input type="text" id="business" autocomplete="organization"></div>
+          <div class="full"><label for="version">Which kit version fits you? <span class="req">*</span></label>
+            <select id="version"><option value="">Select one</option><option>Loan Officer</option><option>Real Estate Agent</option><option>General Business</option></select></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your accounts</legend>
+        <div class="grid">
+          <div class="full"><label for="gmail">The Gmail or Google Workspace address your lead emails should come from <span class="req">*</span><span class="hint">This is the account you'll approve access for. It must be a Google account.</span></label><input type="email" id="gmail"></div>
+          <div class="full"><label for="hasMake">Do you already have a Make.com account? <span class="req">*</span></label>
+            <select id="hasMake"><option value="">Select one</option><option>Yes</option><option>No, please walk me through creating a free one</option><option>Not sure</option></select></div>
+          <div class="full"><label for="alertEmail">Where should your "CALL NOW" new-lead alerts go? <span class="hint">Leave blank to use the address above.</span></label><input type="email" id="alertEmail"></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your leads</legend>
+        <label>Where do your leads come from now? <span class="hint">Pick all that apply.</span></label>
+        <div class="checks" id="sources">
+          <label class="check"><input type="checkbox" value="Website">Website</label>
+          <label class="check"><input type="checkbox" value="Social media / bio link">Social media / bio link</label>
+          <label class="check"><input type="checkbox" value="Referrals">Referrals</label>
+          <label class="check"><input type="checkbox" value="Flyers / QR codes / business cards">Flyers, QR codes, business cards</label>
+          <label class="check"><input type="checkbox" value="Open houses / events">Open houses or events</label>
+          <label class="check"><input type="checkbox" value="Other">Other</label>
+        </div>
+        <div class="grid" style="margin-top:16px">
+          <div class="full"><label for="website">Your website address, if you have one</label><input type="url" id="website" placeholder="https://"></div>
+          <div class="full"><label for="formWhere">Where should your new lead form live? <span class="req">*</span></label>
+            <select id="formWhere"><option value="">Select one</option><option>A shareable link I can put in my bio, email signature, and QR code</option><option>Embedded on my website</option><option>Both</option></select></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your welcome email</legend>
+        <div class="grid">
+          <div class="full"><label for="signature">How should your emails be signed? <span class="req">*</span><span class="hint">Name, title, company, phone. Loan officers: include your NMLS line exactly as it must appear.</span></label><textarea id="signature"></textarea></div>
+          <div class="full"><label for="address">Business mailing address for the email footer <span class="req">*</span><span class="hint">Required for marketing emails. A P.O. box or virtual mailbox is fine.</span></label><input type="text" id="address"></div>
+          <div><label for="tone">Tone <span class="req">*</span></label>
+            <select id="tone"><option value="">Select one</option><option>Warm and friendly</option><option>Polished and professional</option><option>Upbeat and energetic</option></select></div>
+          <div><label for="response">How soon do you usually call new leads?</label>
+            <select id="response"><option value="">Select one</option><option>Within the hour</option><option>Same day</option><option>Within 1 business day</option></select></div>
+          <div class="full"><label for="mustSay">Anything your welcome email must say or must not say? <span class="hint">Specialties, areas you serve, compliance language, a special offer.</span></label><textarea id="mustSay"></textarea></div>
+          <div class="full"><label for="brand">Logo or brand colors <span class="hint">Optional. Paste a Google Drive or Dropbox link, or describe your colors.</span></label><input type="text" id="brand"></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Anything else</legend>
+        <label for="notes">Questions, deadlines, or anything I should know</label>
+        <textarea id="notes"></textarea>
+        <label class="check" style="margin-top:18px"><input type="checkbox" id="ack"><span>I understand setup happens in my own Google and Make accounts, I'll approve access links when they're sent, and I'll never send my passwords. <span class="req">*</span></span></label>
+      </fieldset>
+
+      <button class="btn" type="submit" id="submitBtn">Send my setup details</button>
+    </form>
+
+    <div id="formSuccess">
+      <h2>Got it, thank you!</h2>
+      <p>I'll start on your setup and email you as soon as your first approval link is ready. Questions in the meantime? Reply to any of my emails or write to <a href="mailto:calmscaleai@gmail.com">calmscaleai@gmail.com</a>.</p>
+    </div>
+  </div>
+</main>
+<footer>Questions? Email <a href="mailto:calmscaleai@gmail.com">calmscaleai@gmail.com</a> · <a href="../terms/">Terms &amp; Refund Policy</a></footer>
+<script>
+  var WEBHOOK = 'https://hook.us2.make.com/bhvsy98e1t64bk5tjnfwd9r3rnrpfjhs';
+  var form = document.getElementById('intakeForm');
+  var v = function (id) { return document.getElementById(id).value.trim(); };
+  var emailOk = function (s) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s); };
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var err = document.getElementById('formError');
+    var missing = [];
+    if (!v('name')) missing.push('your name');
+    if (!emailOk(v('email'))) missing.push('your checkout email');
+    if (!v('business')) missing.push('your business name');
+    if (!v('version')) missing.push('your kit version');
+    if (!emailOk(v('gmail'))) missing.push('the Google address emails should come from');
+    if (!v('hasMake')) missing.push('whether you have a Make account');
+    if (v('alertEmail') && !emailOk(v('alertEmail'))) missing.push('a valid alert email (or leave it blank)');
+    if (!v('formWhere')) missing.push('where your lead form should live');
+    if (!v('signature')) missing.push('your email signature');
+    if (!v('address')) missing.push('your mailing address');
+    if (!v('tone')) missing.push('a tone');
+    if (!document.getElementById('ack').checked) missing.push('the checkbox at the bottom');
+    if (missing.length) { err.textContent = 'Almost there. Please add ' + missing.join(', ') + '.'; err.style.display = 'block'; err.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
+    err.style.display = 'none';
+    var sources = Array.prototype.map.call(document.querySelectorAll('#sources input:checked'), function (c) { return c.value; }).join(', ');
+    var btn = document.getElementById('submitBtn');
+    btn.disabled = true; btn.textContent = 'Sending...';
+    var params = new URLSearchParams({
+      formType: 'dfy_intake', name: v('name'), email: v('email'), phone: v('phone'), business: v('business'),
+      version: v('version'), gmail: v('gmail'), hasMake: v('hasMake'), alertEmail: v('alertEmail') || v('gmail'),
+      sources: sources, website: v('website'), formWhere: v('formWhere'), signature: v('signature'),
+      address: v('address'), tone: v('tone'), response: v('response'), mustSay: v('mustSay'), brand: v('brand'),
+      notes: v('notes'), consent: 'Acknowledged: setup in own accounts, approval links only, no passwords.'
+    });
+    try {
+      await fetch(WEBHOOK, { method: 'POST', mode: 'no-cors', body: params });
+      form.style.display = 'none';
+      var ok = document.getElementById('formSuccess');
+      ok.style.display = 'block';
+      ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (ex) {
+      err.textContent = 'Something went wrong sending your details. Please email calmscaleai@gmail.com instead.';
+      err.style.display = 'block';
+      btn.disabled = false; btn.textContent = 'Send my setup details';
+    }
+  });
+</script>
+</body>
+</html>
