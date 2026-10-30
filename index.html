@@ -44,6 +44,9 @@
     .nav-links a { color: var(--muted); text-decoration: none; font-size: .95rem; font-weight: 500; }
     .nav-links a:hover { color: var(--teal); }
     .nav-links .btn { padding: 10px 18px; font-size: .9rem; color: var(--white); }
+    .nav-links a, .brand { white-space: nowrap; }
+    @media (max-width: 900px) { .nav-links a[href="#how"] { display: none; } }
+    @media (max-width: 1080px) { .nav-links { gap: 18px; } .nav-links a[href="#demo"], .nav-links a[href="#faq"] { display: none; } }
     @media (max-width: 760px) { .nav-links a:not(.btn) { display: none; } }
 
     .hero { position: relative; overflow: hidden; padding: 64px 0 80px; }
@@ -169,6 +172,7 @@
       <a href="#demo">Demo</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
+      <a href="calm-assistants/">Calm Assistants</a>
       <a href="prompt-guide/">Prompt Guide</a>
       <a href="quiz/">Free Quiz</a>
       <a class="btn btn-primary" href="#pricing">Get the kit</a>
@@ -432,7 +436,7 @@
   <div class="wrap">
     <div class="foot">
       <div><strong style="color: var(--white);">The Calm Scale AI</strong><br>Simple automations for busy small businesses.</div>
-      <div>Questions? <a href="mailto:calmscaleai@gmail.com">calmscaleai@gmail.com</a><br><a href="terms/">Terms &amp; Refund Policy</a><br>New: <a href="prompt-guide/">Prompt Like You Mean It, the $9 AI prompting guide</a><br>Free: <a href="quiz/">What should you automate first? Take the 2-minute quiz</a></div>
+      <div>Questions? <a href="mailto:calmscaleai@gmail.com">calmscaleai@gmail.com</a><br><a href="terms/">Terms &amp; Refund Policy</a><br>New: <a href="calm-assistants/">Calm Assistants, four AI helpers for your business</a><br>Also new: <a href="prompt-guide/">Prompt Like You Mean It, the $9 AI prompting guide</a><br>Free: <a href="quiz/">What should you automate first? Take the 2-minute quiz</a></div>
     </div>
     <p class="fine">&copy; <span id="year"></span> The Calm Scale AI. Not affiliated with Google or Make. The Lead Follow-Up Kit is a marketing tool, and nothing on this site is legal advice.</p>
   </div>
