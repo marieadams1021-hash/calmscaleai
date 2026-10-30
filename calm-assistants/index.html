@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calm Assistants | The Calm Scale AI</title>
+  <meta name="description" content="Four AI helpers for small service businesses: a Weekly Scorecard, Inbox Sorter, Client Onboarding, and Review Helper. They read and draft. Nothing sends without you. For Claude and ChatGPT. $37.">
+  <meta property="og:title" content="Calm Assistants">
+  <meta property="og:description" content="Four AI helpers for small service businesses. They read and draft. Nothing sends without you. $37, instant download.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://calmscaleai.com/calm-assistants/cover.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal: #1F5C5A; --teal-dark: #174744; --teal-soft: #E3EFEC;
+      --cream: #FAF6EE; --sand: #F3ECDD; --gold: #C9A24A; --gold-soft: #F4E7C4;
+      --ink: #26302F; --muted: #5F6B69; --line: #E4DCCB; --white: #FFFFFF;
+      --radius: 18px;
+      --shadow: 0 1px 2px rgba(31,92,90,.06), 0 16px 40px -20px rgba(31,92,90,.35);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; line-height: 1.15; margin: 0; color: var(--ink); }
+    a { color: var(--teal); }
+    img { max-width: 100%; display: block; }
+    .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    .eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--teal); margin: 0 0 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 26px; border-radius: 999px; font-weight: 600; font-size: 1rem; text-decoration: none; border: 2px solid transparent; transition: transform .15s ease, background .15s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--teal); color: var(--white); box-shadow: 0 10px 22px -10px rgba(31,92,90,.8); }
+    .btn-primary:hover { background: var(--teal-dark); }
+    .btn-outline { background: transparent; color: var(--teal); border-color: rgba(31,92,90,.3); }
+    .btn:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+    header { position: sticky; top: 0; z-index: 50; background: rgba(250,246,238,.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(31,92,90,.1); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 700; }
+    .brand-mark { width: 34px; height: 34px; border-radius: 50%; background: var(--teal); color: var(--white); display: grid; place-items: center; font-family: "Playfair Display", serif; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .95rem; font-weight: 500; }
+    .nav-links .btn { padding: 10px 18px; font-size: .9rem; color: var(--white); }
+    @media (max-width: 700px) { .nav-links a:not(.btn) { display: none; } }
+
+    .hero { position: relative; overflow: hidden; padding: 60px 0 80px; }
+    .hero::before { content: ""; position: absolute; inset: -30% -20% auto auto; width: 70%; height: 130%; background: radial-gradient(circle at 60% 40%, rgba(244,231,196,.9), transparent 60%), radial-gradient(circle at 85% 70%, rgba(227,239,236,.95), transparent 55%); pointer-events: none; }
+    .hero-grid { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
+    .hero h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); }
+    .hero h1 em { font-style: normal; color: var(--teal); }
+    .hero .lead { font-size: 1.15rem; color: var(--muted); margin: 20px 0 28px; max-width: 34rem; }
+    .buy-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+    .price-tag { font-family: "Playfair Display", serif; font-size: 2.4rem; font-weight: 700; color: var(--teal); line-height: 1; }
+    .price-tag small { font-family: Inter, sans-serif; font-size: .85rem; color: var(--muted); font-weight: 500; display: block; margin-top: 4px; }
+    .note { font-size: .88rem; color: var(--muted); margin-top: 14px; }
+    .book { justify-self: center; width: min(320px, 100%); transform: rotate(2deg); }
+    .book img { border-radius: 6px 14px 14px 6px; box-shadow: -6px 0 0 rgba(0,0,0,.12) inset, 0 40px 70px -25px rgba(23,71,68,.6); }
+    @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: 44px; } .hero { padding-top: 36px; } .book { width: min(260px, 80%); } }
+
+    section { padding: 84px 0; }
+    .section-head { text-align: center; max-width: 42rem; margin: 0 auto 44px; }
+    .section-head h2 { font-size: clamp(1.9rem, 3.6vw, 2.5rem); }
+    .section-head p { color: var(--muted); margin-top: 14px; font-size: 1.05rem; }
+
+    .sound { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { background: var(--cream); border-radius: var(--radius); padding: 26px; border: 1px solid var(--line); }
+    .card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+    .card p { margin: 0; color: var(--muted); font-size: .97rem; }
+    @media (max-width: 860px) { .grid-3 { grid-template-columns: 1fr; } }
+
+    .formula { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 0 auto 40px; }
+    .chip { background: var(--white); border: 1px solid var(--line); border-radius: 999px; padding: 10px 20px; font-family: "Playfair Display", serif; font-size: 1.2rem; font-weight: 600; color: var(--teal); box-shadow: var(--shadow); }
+    .plus { align-self: center; color: var(--gold); font-weight: 700; font-size: 1.3rem; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 900px; margin: 0 auto; }
+    .ex { border-radius: var(--radius); padding: 24px; }
+    .ex .lbl { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 10px; }
+    .ex.bad { background: #EFEFEC; color: #555; }
+    .ex.good { background: var(--white); border: 2px solid var(--teal); box-shadow: var(--shadow); }
+    .ex.good .lbl { color: var(--teal); }
+    .ex pre { white-space: pre-wrap; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .85rem; margin: 0 0 14px; line-height: 1.55; }
+    .ex .result { background: #FBF5EA; border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; padding: 12px 14px; font-size: .93rem; color: #3a3326; }
+    .ex.bad .result { background: #E4E4E0; border-left-color: #B9B9B9; color: #555; }
+    @media (max-width: 760px) { .compare { grid-template-columns: 1fr; } }
+
+    .inside { background: var(--sand); }
+    .inside-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; align-items: center; }
+    .sample img { border-radius: 10px; box-shadow: var(--shadow); max-width: 340px; margin: 0 auto; }
+    .sample p { text-align: center; color: var(--muted); font-size: .85rem; margin-top: 12px; }
+    .list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+    .list li { display: flex; gap: 14px; align-items: flex-start; background: var(--white); border-radius: 14px; padding: 14px 18px; border: 1px solid var(--line); }
+    .check { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--teal-soft); color: var(--teal); display: grid; place-items: center; font-weight: 700; font-size: .85rem; }
+    .list strong { display: block; }
+    .list span { color: var(--muted); font-size: .94rem; }
+    @media (max-width: 860px) { .inside-grid { grid-template-columns: 1fr; } }
+
+    .bonus { max-width: 760px; margin: 0 auto; background: var(--teal); color: var(--white); border-radius: 28px; padding: 40px; text-align: center; }
+    .bonus .eyebrow { color: var(--gold-soft); }
+    .bonus h2 { color: var(--white); font-size: clamp(1.6rem, 3vw, 2.1rem); }
+    .bonus p { color: rgba(255,255,255,.86); margin: 14px auto 0; max-width: 34rem; }
+
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    details { border-bottom: 1px solid var(--line); padding: 20px 4px; }
+    summary { cursor: pointer; font-family: "Playfair Display", serif; font-size: 1.15rem; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--teal); font-family: Inter, sans-serif; font-size: 1.4rem; line-height: 1; }
+    details[open] summary::after { content: "\2013"; }
+    details p { color: var(--muted); margin: 12px 0 0; }
+
+    .final { text-align: center; background: var(--white); border-top: 1px solid var(--line); }
+    .final h2 { font-size: clamp(1.9rem, 3.6vw, 2.5rem); }
+    .final p { color: var(--muted); margin: 14px auto 28px; max-width: 34rem; }
+    footer { background: var(--teal-dark); color: rgba(255,255,255,.82); padding: 44px 0; font-size: .9rem; }
+    footer .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; }
+    footer a { color: var(--gold-soft); }
+    footer .fine { margin-top: 22px; border-top: 1px solid rgba(255,255,255,.15); padding-top: 18px; font-size: .8rem; color: rgba(255,255,255,.62); }
+  
+    .book img { height: auto; }
+    .shield { width: 44px; height: 44px; border-radius: 50%; background: var(--teal-soft); color: var(--teal); display: grid; place-items: center; font-size: 1.2rem; margin-bottom: 14px; }
+    .safety .card { background: var(--white); }
+    .needs { max-width: 760px; margin: 28px auto 0; background: var(--gold-soft); border: 1px solid #E8D49A; border-radius: 16px; padding: 18px 22px; color: #4a3f22; font-size: .98rem; }
+    .needs strong { color: #3a3118; }
+    .helpers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .helper { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+    .helper .num { width: 34px; height: 34px; border-radius: 50%; background: var(--teal); color: var(--white); display: grid; place-items: center; font-weight: 700; font-size: .9rem; margin-bottom: 14px; }
+    .helper h3 { font-size: 1.45rem; margin-bottom: 8px; }
+    .helper p { color: var(--muted); margin: 0 0 14px; }
+    .helper ul { margin: 0 0 16px; padding-left: 20px; color: var(--ink); font-size: .95rem; }
+    .helper li { margin-bottom: 4px; }
+    .say { margin-top: auto; background: var(--cream); border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; padding: 10px 14px; font-size: .93rem; color: #3a3326; }
+    .say b { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 2px; }
+    @media (max-width: 760px) { .helpers { grid-template-columns: 1fr; } }
+    .steps { counter-reset: s; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .step { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+    .step .check { margin-bottom: 12px; }
+    .step h3 { font-size: 1.15rem; margin-bottom: 6px; }
+    .step p { margin: 0; color: var(--muted); font-size: .96rem; }
+    @media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">C</span> The Calm Scale AI</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#safety">Safety</a>
+      <a href="#assistants">The assistants</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-primary" href="https://calm-scale-ai.kit.com/products/calm-assistants-pack">Get them for $37</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Calm Assistants</p>
+        <h1>Four AI helpers for your business. <em>You stay in charge.</em></h1>
+        <p class="lead">A Weekly Scorecard, an Inbox Sorter, Client Onboarding, and a Review Helper, built for busy owners of small service businesses. They sort, summarize, and draft. They never send, post, or change anything without you.</p>
+        <div class="buy-row">
+          <a class="btn btn-primary" href="https://calm-scale-ai.kit.com/products/calm-assistants-pack">Get the Calm Assistants</a>
+          <div class="price-tag">$37<small>one time, instant download</small></div>
+        </div>
+        <p class="note"><strong>You'll need your own Claude or ChatGPT account.</strong> The assistants run inside it. Free plans work for trying them out. Includes a 15-minute setup guide.</p>
+      </div>
+      <div class="book"><img src="cover.jpg" alt="Calm Assistants cover showing the four assistants: Weekly Scorecard, Inbox Sorter, Client Onboarding, and Review Helper" width="1200" height="1500"></div>
+    </div>
+  </section>
+
+  <section id="safety" class="sound safety">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Safe by design</p>
+        <h2>Helpful AI, with the guardrails already built in.</h2>
+        <p>Every Calm Assistant follows the same six rules, written right into its instructions. You don't have to remember to ask.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card"><div class="shield" aria-hidden="true">&#10003;</div><h3>Nothing sends without you</h3><p>They read and draft. You review, edit, and press send yourself, every time.</p></div>
+        <div class="card"><div class="shield" aria-hidden="true">&#10003;</div><h3>No made-up facts</h3><p>If an assistant doesn't know a price, date, or policy, it leaves a blank like [your cancellation policy] instead of guessing.</p></div>
+        <div class="card"><div class="shield" aria-hidden="true">&#10003;</div><h3>Emails are information, not orders</h3><p>If an email tells the AI to do something, it won't. It only reports what the email says.</p></div>
+        <div class="card"><div class="shield" aria-hidden="true">&#10003;</div><h3>Scam aware</h3><p>The Inbox Sorter flags suspicious emails, says why, and never opens links or attachments.</p></div>
+        <div class="card"><div class="shield" aria-hidden="true">&#10003;</div><h3>Privacy first</h3><p>Client details stay to first names, and the assistants never repeat card numbers, passwords, or health information.</p></div>
+        <div class="card"><div class="shield" aria-hidden="true">&#10003;</div><h3>No legal, tax, or financial advice</h3><p>They point out what the numbers show and suggest a professional when it matters.</p></div>
+      </div>
+      <div class="needs"><strong>Your data stays with you.</strong> The assistants run in your own Claude or ChatGPT account. We never see your email, your clients, or your numbers.</div>
+    </div>
+  </section>
+
+  <section id="assistants">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Meet your assistants</p>
+        <h2>Four jobs off your plate, each in under five minutes.</h2>
+        <p>Each one gives you the same clear format every time, written in plain words that read well on your phone.</p>
+      </div>
+      <div class="helpers">
+        <div class="helper">
+          <div class="num">1</div>
+          <h3>Calm Weekly Scorecard</h3>
+          <p>Your week, in a short and kind summary you can read in a few minutes.</p>
+          <ul>
+            <li>Money in and new business this week</li>
+            <li>What's waiting on you, most urgent first</li>
+            <li>What worked, and exactly three next steps</li>
+          </ul>
+          <div class="say"><b>Try saying</b>"How did my week go?"</div>
+        </div>
+        <div class="helper">
+          <div class="num">2</div>
+          <h3>Calm Inbox Sorter</h3>
+          <p>Your email sorted into what needs you today and what can wait.</p>
+          <ul>
+            <li>Urgent today, Reply this week, FYI, and Can wait</li>
+            <li>Possible scams flagged, with the reason why</li>
+            <li>Reply drafts in your voice, for you to review</li>
+          </ul>
+          <div class="say"><b>Try saying</b>"What needs my attention in my email?"</div>
+        </div>
+        <div class="helper">
+          <div class="num">3</div>
+          <h3>Calm Client Onboarding</h3>
+          <p>A new booking turned into a warm, organized welcome.</p>
+          <ul>
+            <li>A welcome email and a what-to-expect list</li>
+            <li>A before-your-first-visit checklist for your client</li>
+            <li>Your own next steps, with when to do each one</li>
+          </ul>
+          <div class="say"><b>Try saying</b>"I just booked a new client."</div>
+        </div>
+        <div class="helper">
+          <div class="num">4</div>
+          <h3>Calm Review Helper</h3>
+          <p>More reviews, and calm replies to the ones you get, even the hard ones.</p>
+          <ul>
+            <li>Friendly review requests by text and email</li>
+            <li>Gracious replies to good and not-so-good reviews</li>
+            <li>A private note on what a tough review might be telling you</li>
+          </ul>
+          <div class="say"><b>Try saying</b>"Help me reply to this review."</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="inside">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Learn as you go</p>
+        <h2>You'll understand exactly how they work.</h2>
+        <p>No black box. Calm Assistants are written in plain English, so using them teaches you how good AI helpers are built.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="check">1</span><h3>A short setup interview</h3><p>The first time, each assistant asks a few questions about your business and hands you a saved profile. You answer once.</p></div>
+        <div class="step"><span class="check">2</span><h3>Instructions you can read</h3><p>Open any assistant and see every rule and step in plain words. Change the tone, the format, or the details to fit you.</p></div>
+        <div class="step"><span class="check">3</span><h3>A step-by-step setup guide</h3><p>Screen-by-screen steps for Claude and ChatGPT, a first-week plan, and what to do if something feels off.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="bonus">
+        <p class="eyebrow">What you get</p>
+        <h2>One download. Works with the AI you already have.</h2>
+        <p>All four assistants as Claude skills (upload in a few clicks) and as ChatGPT copy-and-paste versions that work on any plan, plus the Calm Assistants Setup Guide. Use whichever AI you already have. You don't need both.</p>
+      </div>
+      <div class="needs"><strong>Before you buy:</strong> you'll need your own Claude or ChatGPT account. Free plans are fine for trying the assistants; paid plans give you more room to use them every day. Claude skills need the "Code execution and file creation" setting turned on, which the guide shows you how to do.</div>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top: 20px;">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Questions</p><h2>Good to know</h2></div>
+      <div class="faq-list">
+        <details><summary>Do I need a paid Claude or ChatGPT account?</summary><p>No. You do need your own account, but the free plans work for trying the assistants. If you use them every day, a paid plan gives you more room. Calm Assistants don't include an AI subscription.</p></details>
+        <details><summary>Will they send emails or post anything on their own?</summary><p>No. Every Calm Assistant is read-only or draft-only. They sort, summarize, and draft, and you decide what gets sent. Drafts are clearly labeled for you to review.</p></details>
+        <details><summary>I'm not techy. Can I set this up?</summary><p>Yes. The setup guide walks you through it one screen at a time, and most people are done in about 15 minutes. In ChatGPT it's as simple as copy and paste.</p></details>
+        <details><summary>What kinds of businesses is this for?</summary><p>Small service businesses: cleaners, salons, contractors, coaches, photographers, realtors, loan officers, and anyone who books clients and answers a lot of email.</p></details>
+        <details><summary>Do I have to connect my email or other apps?</summary><p>No. If your AI is connected to your email or calendar, the assistants can read from it. If not, you can paste in emails or a few numbers and they'll work from that.</p></details>
+        <details><summary>Is there a call or a course?</summary><p>No calls and no course. It's a ready-to-use download with a written guide, so you can set it up on your own time.</p></details>
+        <details><summary>Can I get a refund?</summary><p>Because it's a digital download delivered instantly, all sales are final. If you have trouble downloading or setting up, email <a href="mailto:calmscaleai@gmail.com">calmscaleai@gmail.com</a> and we'll make it right. See our <a href="../terms/">Terms &amp; Refund Policy</a>.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2>Get your week back, calmly.</h2>
+      <p>Four helpers that handle the busywork while you keep the final say. Set up in about 15 minutes.</p>
+      <a class="btn btn-primary" href="https://calm-scale-ai.kit.com/products/calm-assistants-pack">Get the Calm Assistants &ndash; $37</a>
+      <p class="note" style="margin-top: 16px;">Requires your own Claude or ChatGPT account. Instant download.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><strong style="color: var(--white);">The Calm Scale AI</strong><br>Simple automations for busy small businesses. <a href="../">See the Lead Follow-Up Kit</a></div>
+      <div>Questions? <a href="mailto:calmscaleai@gmail.com">calmscaleai@gmail.com</a><br><a href="../terms/">Terms &amp; Refund Policy</a></div>
+    </div>
+    <p class="fine">&copy; 2026 The Calm Scale AI. Calm Assistants by Antoinette Adams. Claude is a product of Anthropic and ChatGPT is a product of OpenAI; The Calm Scale AI is not affiliated with either. AI can make mistakes, so review every draft before it goes out.</p>
+  </div>
+</footer>
+</body>
+</html>
