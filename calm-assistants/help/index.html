@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calm Assistants Help | The Calm Scale AI</title>
+  <meta name="description" content="Help for Calm Assistants buyers: setting up in Claude or ChatGPT, fixing upload problems, finding your download, and how to reach us.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal: #1F5C5A; --teal-dark: #174744; --teal-soft: #E3EFEC;
+      --cream: #FAF6EE; --sand: #F3ECDD; --gold: #C9A24A; --gold-soft: #F4E7C4;
+      --ink: #26302F; --muted: #5F6B69; --line: #E4DCCB; --white: #FFFFFF;
+      --radius: 18px;
+      --shadow: 0 1px 2px rgba(31,92,90,.06), 0 16px 40px -20px rgba(31,92,90,.35);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; line-height: 1.15; margin: 0; color: var(--ink); }
+    a { color: var(--teal); }
+    img { max-width: 100%; display: block; }
+    .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    .eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--teal); margin: 0 0 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 26px; border-radius: 999px; font-weight: 600; font-size: 1rem; text-decoration: none; border: 2px solid transparent; transition: transform .15s ease, background .15s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--teal); color: var(--white); box-shadow: 0 10px 22px -10px rgba(31,92,90,.8); }
+    .btn-primary:hover { background: var(--teal-dark); }
+    .btn-outline { background: transparent; color: var(--teal); border-color: rgba(31,92,90,.3); }
+    .btn:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+    header { position: sticky; top: 0; z-index: 50; background: rgba(250,246,238,.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(31,92,90,.1); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 700; }
+    .brand-mark { width: 34px; height: 34px; border-radius: 50%; background: var(--teal); color: var(--white); display: grid; place-items: center; font-family: "Playfair Display", serif; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .95rem; font-weight: 500; }
+    .nav-links .btn { padding: 10px 18px; font-size: .9rem; color: var(--white); }
+    @media (max-width: 700px) { .nav-links a:not(.btn) { display: none; } }
+
+    .hero { position: relative; overflow: hidden; padding: 60px 0 80px; }
+    .hero::before { content: ""; position: absolute; inset: -30% -20% auto auto; width: 70%; height: 130%; background: radial-gradient(circle at 60% 40%, rgba(244,231,196,.9), transparent 60%), radial-gradient(circle at 85% 70%, rgba(227,239,236,.95), transparent 55%); pointer-events: none; }
+    .hero-grid { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
+    .hero h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); }
+    .hero h1 em { font-style: normal; color: var(--teal); }
+    .hero .lead { font-size: 1.15rem; color: var(--muted); margin: 20px 0 28px; max-width: 34rem; }
+    .buy-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+    .price-tag { font-family: "Playfair Display", serif; font-size: 2.4rem; font-weight: 700; color: var(--teal); line-height: 1; }
+    .price-tag small { font-family: Inter, sans-serif; font-size: .85rem; color: var(--muted); font-weight: 500; display: block; margin-top: 4px; }
+    .note { font-size: .88rem; color: var(--muted); margin-top: 14px; }
+    .book { justify-self: center; width: min(320px, 100%); transform: rotate(2deg); }
+    .book img { border-radius: 6px 14px 14px 6px; box-shadow: -6px 0 0 rgba(0,0,0,.12) inset, 0 40px 70px -25px rgba(23,71,68,.6); }
+    @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: 44px; } .hero { padding-top: 36px; } .book { width: min(260px, 80%); } }
+
+    section { padding: 84px 0; }
+    .section-head { text-align: center; max-width: 42rem; margin: 0 auto 44px; }
+    .section-head h2 { font-size: clamp(1.9rem, 3.6vw, 2.5rem); }
+    .section-head p { color: var(--muted); margin-top: 14px; font-size: 1.05rem; }
+
+    .sound { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { background: var(--cream); border-radius: var(--radius); padding: 26px; border: 1px solid var(--line); }
+    .card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+    .card p { margin: 0; color: var(--muted); font-size: .97rem; }
+    @media (max-width: 860px) { .grid-3 { grid-template-columns: 1fr; } }
+
+    .formula { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 0 auto 40px; }
+    .chip { background: var(--white); border: 1px solid var(--line); border-radius: 999px; padding: 10px 20px; font-family: "Playfair Display", serif; font-size: 1.2rem; font-weight: 600; color: var(--teal); box-shadow: var(--shadow); }
+    .plus { align-self: center; color: var(--gold); font-weight: 700; font-size: 1.3rem; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 900px; margin: 0 auto; }
+    .ex { border-radius: var(--radius); padding: 24px; }
+    .ex .lbl { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 10px; }
+    .ex.bad { background: #EFEFEC; color: #555; }
+    .ex.good { background: var(--white); border: 2px solid var(--teal); box-shadow: var(--shadow); }
+    .ex.good .lbl { color: var(--teal); }
+    .ex pre { white-space: pre-wrap; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .85rem; margin: 0 0 14px; line-height: 1.55; }
+    .ex .result { background: #FBF5EA; border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; padding: 12px 14px; font-size: .93rem; color: #3a3326; }
+    .ex.bad .result { background: #E4E4E0; border-left-color: #B9B9B9; color: #555; }
+    @media (max-width: 760px) { .compare { grid-template-columns: 1fr; } }
+
+    .inside { background: var(--sand); }
+    .inside-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; align-items: center; }
+    .sample img { border-radius: 10px; box-shadow: var(--shadow); max-width: 340px; margin: 0 auto; }
+    .sample p { text-align: center; color: var(--muted); font-size: .85rem; margin-top: 12px; }
+    .list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+    .list li { display: flex; gap: 14px; align-items: flex-start; background: var(--white); border-radius: 14px; padding: 14px 18px; border: 1px solid var(--line); }
+    .check { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--teal-soft); color: var(--teal); display: grid; place-items: center; font-weight: 700; font-size: .85rem; }
+    .list strong { display: block; }
+    .list span { color: var(--muted); font-size: .94rem; }
+    @media (max-width: 860px) { .inside-grid { grid-template-columns: 1fr; } }
+
+    .bonus { max-width: 760px; margin: 0 auto; background: var(--teal); color: var(--white); border-radius: 28px; padding: 40px; text-align: center; }
+    .bonus .eyebrow { color: var(--gold-soft); }
+    .bonus h2 { color: var(--white); font-size: clamp(1.6rem, 3vw, 2.1rem); }
+    .bonus p { color: rgba(255,255,255,.86); margin: 14px auto 0; max-width: 34rem; }
+
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    details { border-bottom: 1px solid var(--line); padding: 20px 4px; }
+    summary { cursor: pointer; font-family: "Playfair Display", serif; font-size: 1.15rem; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--teal); font-family: Inter, sans-serif; font-size: 1.4rem; line-height: 1; }
+    details[open] summary::after { content: "\2013"; }
+    details p { color: var(--muted); margin: 12px 0 0; }
+
+    .final { text-align: center; background: var(--white); border-top: 1px solid var(--line); }
+    .final h2 { font-size: clamp(1.9rem, 3.6vw, 2.5rem); }
+    .final p { color: var(--muted); margin: 14px auto 28px; max-width: 34rem; }
+    footer { background: var(--teal-dark); color: rgba(255,255,255,.82); padding: 44px 0; font-size: .9rem; }
+    footer .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; }
+    footer a { color: var(--gold-soft); }
+    footer .fine { margin-top: 22px; border-top: 1px solid rgba(255,255,255,.15); padding-top: 18px; font-size: .8rem; color: rgba(255,255,255,.62); }
+  
+    .book img { height: auto; }
+    .shield { width: 44px; height: 44px; border-radius: 50%; background: var(--teal-soft); color: var(--teal); display: grid; place-items: center; font-size: 1.2rem; margin-bottom: 14px; }
+    .safety .card { background: var(--white); }
+    .needs { max-width: 760px; margin: 28px auto 0; background: var(--gold-soft); border: 1px solid #E8D49A; border-radius: 16px; padding: 18px 22px; color: #4a3f22; font-size: .98rem; }
+    .needs strong { color: #3a3118; }
+    .helpers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .helper { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+    .helper .num { width: 34px; height: 34px; border-radius: 50%; background: var(--teal); color: var(--white); display: grid; place-items: center; font-weight: 700; font-size: .9rem; margin-bottom: 14px; }
+    .helper h3 { font-size: 1.45rem; margin-bottom: 8px; }
+    .helper p { color: var(--muted); margin: 0 0 14px; }
+    .helper ul { margin: 0 0 16px; padding-left: 20px; color: var(--ink); font-size: .95rem; }
+    .helper li { margin-bottom: 4px; }
+    .say { margin-top: auto; background: var(--cream); border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; padding: 10px 14px; font-size: .93rem; color: #3a3326; }
+    .say b { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 2px; }
+    @media (max-width: 760px) { .helpers { grid-template-columns: 1fr; } }
+    .steps { counter-reset: s; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .step { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+    .step .check { margin-bottom: 12px; }
+    .step h3 { font-size: 1.15rem; margin-bottom: 6px; }
+    .step p { margin: 0; color: var(--muted); font-size: .96rem; }
+    @media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
+    .help-wrap { max-width: 800px; margin: 0 auto; }
+    .help-group { margin-top: 48px; }
+    .help-group h2 { font-size: clamp(1.5rem, 3vw, 1.9rem); margin-bottom: 8px; }
+    .help-group > p { color: var(--muted); margin: 0 0 8px; }
+    details ol, details ul { color: var(--muted); margin: 10px 0 0; padding-left: 22px; }
+    details li { margin-bottom: 6px; }
+    .quick { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px; }
+    .quick a { display: block; background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 18px; text-decoration: none; color: var(--ink); font-weight: 600; box-shadow: var(--shadow); }
+    .quick a span { display: block; color: var(--muted); font-weight: 400; font-size: .92rem; margin-top: 4px; }
+    @media (max-width: 760px) { .quick { grid-template-columns: 1fr; } }
+    .contact { margin-top: 56px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="../../"><span class="brand-mark" aria-hidden="true">C</span> The Calm Scale AI</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#setup">Setup</a>
+      <a href="#using">Using them</a>
+      <a href="#orders">Your order</a>
+      <a class="btn btn-primary" href="../">About Calm Assistants</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom: 40px;">
+    <div class="wrap help-wrap">
+      <p class="eyebrow">Calm Assistants Help</p>
+      <h1>Stuck on something? <em>Start here.</em></h1>
+      <p class="lead">Most questions are answered below in a minute or two. Your Setup Guide (Calm-Assistants-Setup-Guide.pdf, inside your download) has the full step-by-step setup.</p>
+      <div class="quick">
+        <a href="#upload">My Claude upload failed<span>The most common fix</span></a>
+        <a href="#download">I can't find my download<span>Get your files again</span></a>
+        <a href="#contact">I still need help<span>How to reach us</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0;">
+    <div class="wrap help-wrap">
+
+      <div class="help-group" id="setup">
+        <p class="eyebrow">Setup</p>
+        <h2>Getting set up</h2>
+        <details><summary>Do I use the Claude files or the ChatGPT files?</summary><p>Whichever AI you already use. You don't need both. The four files ending in .zip are for Claude. The four files ending in -chatgpt.txt are for ChatGPT.</p></details>
+        <details id="upload"><summary>My Claude upload failed. What do I do?</summary>
+          <ol>
+            <li>Make sure you picked a file ending in <strong>.zip</strong>, such as calm-weekly-scorecard.zip, not a .txt file.</li>
+            <li>Upload the .zip exactly as it came. Don't open, unzip, or rename it first. On Windows these show as "Compressed (zipped) Folder," which is correct.</li>
+            <li>Check that <strong>Code execution and file creation</strong> is turned on: go to Settings, then Capabilities. On some screens it's called "Create and edit files." Skills need this setting.</li>
+            <li>Then go to Customize, the Skills tab, click <strong>+ Add</strong>, choose <strong>Upload skill</strong>, and pick the .zip again.</li>
+          </ol>
+        </details>
+        <details><summary>I unzipped a Claude file by accident.</summary><p>No problem. Download the pack again (see "I can't find my download" below) and upload the .zip files straight from the fresh download without opening them.</p></details>
+        <details><summary>The assistant is uploaded but nothing happens.</summary><p>Check that its toggle is switched on in the Skills tab. Then start a <strong>new</strong> chat and either type <strong>/</strong> and pick the assistant from the list, or just ask in your own words, like "How did my week go?"</p></details>
+        <details><summary>How do I set them up in ChatGPT?</summary><p>Open the .txt file for the assistant you want, copy everything below the line, paste it into a new ChatGPT chat, and send "Let's get started." This works on any plan. If your plan includes Projects, you can paste the instructions into a Project's instructions box so they're always ready. ChatGPT's menus change often, so if something looks different, search ChatGPT's help center for "Projects."</p></details>
+        <details><summary>Do I need a paid Claude or ChatGPT plan?</summary><p>No. Free plans work for trying the assistants. If you use them every day, a paid plan gives you more room. Calm Assistants don't include an AI subscription.</p></details>
+      </div>
+
+      <div class="help-group" id="using">
+        <p class="eyebrow">Using them</p>
+        <h2>Day-to-day questions</h2>
+        <details><summary>It keeps asking me the setup questions again.</summary><p>The first time, each assistant gives you a short profile. Save it. Paste it at the start of your next chat, or keep it in your Project or saved instructions, and you'll only answer the questions once.</p></details>
+        <details><summary>The answer is too long or too formal.</summary><p>Just tell it: "Shorter and warmer, please." You can also open the instructions (they're written in plain English) and change the tone or format to fit you.</p></details>
+        <details><summary>It got a detail wrong or made something up.</summary><p>Point it out and ask it to use a blank instead, like [your cancellation policy]. Then update your saved profile so it has the right details next time. If it keeps happening, email us so we can improve the assistant.</p></details>
+        <details><summary>Will it send emails or post anything on its own?</summary><p>No. Every Calm Assistant only reads, sorts, summarizes, and drafts. Drafts are labeled for you to review, and you send them yourself.</p></details>
+        <details><summary>Is my business information private?</summary><p>The assistants run inside your own Claude or ChatGPT account, so your emails, clients, and numbers stay there. We never see them. Your AI provider's own privacy settings apply.</p></details>
+        <details><summary>Can it give me tax, legal, or financial advice?</summary><p>No. The assistants point out what your numbers show and suggest checking with a professional you trust when it matters.</p></details>
+      </div>
+
+      <div class="help-group" id="orders">
+        <p class="eyebrow">Your order</p>
+        <h2>Downloads, emails, and refunds</h2>
+        <details id="download"><summary>I can't find my download.</summary><p>Search your email for <strong>"Receipt for Calm Assistants Pack."</strong> The Download button at the bottom works as many times as you need. Check spam and Promotions too. Still can't find it? Email us from the address you bought with and we'll send it again.</p></details>
+        <details><summary>The Download button didn't show on the thank-you page.</summary><p>Sometimes it takes a few seconds to appear. Refresh the page, or use the download button in your receipt email.</p></details>
+        <details><summary>What are the tip emails I'm getting?</summary><p>After you buy, you get three short tips over your first ten days to help you get started. Reply STOP to any of them and they'll stop.</p></details>
+        <details><summary>Can I get a refund?</summary><p>Because it's a digital download delivered instantly, all sales are final. If you have trouble downloading or setting up, email us and we'll make it right. See our <a href="../../terms/">Terms &amp; Refund Policy</a>.</p></details>
+      </div>
+
+      <div class="contact" id="contact">
+        <div class="bonus">
+          <p class="eyebrow">Still need help?</p>
+          <h2>Email us. We'll help you sort it out.</h2>
+          <p>Write to <a href="mailto:calmscaleai@gmail.com" style="color: var(--gold-soft);">calmscaleai@gmail.com</a> with the email you bought with and a short note (a screenshot helps). We reply within 2 business days, by email only.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><strong style="color: var(--white);">The Calm Scale AI</strong><br>Simple automations for busy small businesses. <a href="../">See Calm Assistants</a></div>
+      <div>Questions? <a href="mailto:calmscaleai@gmail.com">calmscaleai@gmail.com</a><br><a href="../../terms/">Terms &amp; Refund Policy</a></div>
+    </div>
+    <p class="fine">&copy; 2026 The Calm Scale AI. Calm Assistants by Antoinette Adams. Claude is a product of Anthropic and ChatGPT is a product of OpenAI; The Calm Scale AI is not affiliated with either. AI can make mistakes, so review every draft before it goes out.</p>
+  </div>
+</footer>
+<script>
+  (function () {
+    function openFromHash() {
+      var el = location.hash && document.getElementById(location.hash.slice(1));
+      if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView({ block: 'start' }); }
+    }
+    window.addEventListener('hashchange', openFromHash);
+    openFromHash();
+  })();
+</script>
+</body>
+</html>
